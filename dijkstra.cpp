@@ -8,14 +8,7 @@ Dijkstra::Dijkstra(Graph &_g )
 {
     this->graph = &_g;
 }
-/*{
-    for (int i=0; i <= graph._V(); ++i){
-        distances[i] = INF; //Initiate all distances with valor infinte.
-        visited[i] = false; // Initiate all vertexs as no visited.
-        previus[i] = -1; // Initiate the previus of vertex i with -1
-    }
-}
-*/
+
 //Initizialition
 void Dijkstra::init(){
     for (int i=0; i <= this->graph->_V(); ++i){
@@ -67,11 +60,11 @@ void Dijkstra::dijkstra_algorithm(int initial, int destination, double &average,
 
     average += static_cast<double>(distances[destination]);
     count++; //Amount of iterations.
-
     //cout << "Paths traveled: " << count <<" | Total sum of short paths: " << average << " | Average: " << static_cast<double>(average/count) << endl;
-    graph->neighbors(destination);
+    //graph->neighbors(destination);
     //print( destination );
-    std::cout << std::endl;
+    graph->neighbors(destination,initial,this->previus);
+    std::cout<<std::endl;
 }
 
 Graph Dijkstra::getGraph()

@@ -35,7 +35,7 @@ public:
     std::vector<Router>* Adj();
     bool adjacent(const Graph &g, int x, int y); // Test whether there is an edge between node x and y.
     void neighbors(int x); // List all nodes y such that there is an edge from x to y.
-
+    void neighbors(int x, int initial, int prev[]); // List all nodes 'y' include in the 'prev' vector.
     //Functions to add edges.
     void add(Graph &g, int x, int y); //Add a edge to g, from x to y. If not exists.
     void add(Graph &g, int x, int y, int cost); //Add a edge to g, from x to y. If not exists.

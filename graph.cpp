@@ -157,6 +157,23 @@ bool Graph::is_Conected(bool* graph[], int size)
     return false;
 }
 
+// List all nodes 'y' include in the 'prev' vector.
+void Graph::neighbors(int x, int initial, int prev[])
+{
+    std::cout << x << ": ";
+    while(x != initial)
+    {
+        for(auto p: this->adj[x])
+        {
+            if ( p.first == prev[x])
+            {
+                std::cout << p.first << "->";
+                x = p.first;
+                break;
+            }
+        }
+    }
+}
 
 //Show a list of nodes conected with x.
 void Graph::neighbors(int x)
@@ -221,6 +238,7 @@ void Graph::printGraph()
     int i=0;
     for(auto p : this->adj)
     {
+        if (p.size() == 0) break;
         std::cout << i << ": ";
         for(auto j : p)
             std::cout << j.second << "(" << j.first << ")" << " ";

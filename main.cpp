@@ -4,7 +4,7 @@
 
 int main (void)
 {
-    Graph g(10,25);
+    Graph g(5,25);
     for(int i=0; i<10;i++)
         g.neighbors(i);
     Dijkstra d(g);
